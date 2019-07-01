@@ -1,0 +1,310 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+/*    background-color: #cc975e;*/
+    background: url(../res/beach-blur-boardwalk-132037.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main-grid{
+    display: grid;
+    
+    grid-template-columns: 1fr 500px 500px 1fr;
+/*    background-color: aqua;*/
+    grid-template-areas: ". container container ."
+    ;
+    margin-top: 15%;
+/*    opacity: 0.5;*/
+
+}
+
+.main-grid-ani{
+    animation-name: main-grid-ani;
+    animation-duration: 5s;
+}
+
+@keyframes main-grid-ani {
+    from{opacity: 1}
+    to{opacity: 0}
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "date-bar date-bar"
+        "from-calendar to-calendar";
+    grid-area: container;
+/*    background-color: red;*/
+    
+}
+
+.date-bar{
+    background: rgb(0, 0, 255);
+    grid-area: date-bar;
+    color: white;
+    padding-left: 3em;
+    border-radius: .8em;
+    font-size: 22px;
+}
+
+#from-input{
+    margin: 1.5em 4.5em 1.5em 2em ;
+    text-align:center;
+    
+}
+
+#to-input{
+    margin: 1.5em 6em 1.5em 2em;
+    text-align: center;
+}
+
+.date-bar input{
+    border-radius: 5em;
+    height: 2em;
+    width: 18em;
+    border: none;
+}
+
+#bookNow{
+    background-color:#29C41E;
+    border: none;
+    cursor: pointer;
+    border-radius:5em;
+    height: 2.5em;
+    width: 7em;
+    color:white;
+    box-shadow: 0 12px 6px rgb(0,0,0,0.25);
+}
+
+.date-bar img{
+    width:1em;
+    cursor: pointer;
+}
+
+.date-bar img:hover{
+    width: 1.1em;
+    vertical-align: -.1em;
+    
+}
+
+.date-bar span{
+    display: inline-block;
+    vertical-align: -.2em;
+}
+
+.date-bar #from-img{
+    margin-left: -4.5em;
+}
+
+.date-bar #to-img{
+    margin-left: -5.5em;
+}
+
+.from-calendar{
+    background: rgb(255,255,255,0.7);
+    grid-area: from-calendar;
+    padding-top: .5em;
+    border-radius: .5em;
+    display: none;
+    
+    width: 18em;
+    height: 18em;
+    margin: .5em;
+    margin-left: 8.3em;
+    
+/*    grid-template-columns: 1fr 1fr 1fr;*/
+    grid-template-areas:
+        "month"
+        "dates";
+    
+    grid-template-rows: 1.5em;
+
+}
+
+.month{
+    grid-area: month;
+    display: grid;
+    grid-template-areas: 
+        "fr-left month-name year-name fr-right";
+/*    margin: .2em;*/
+    font-size: 19px;
+    text-align: center; 
+}
+
+.month span{
+    
+    margin: 0 .3em 0 .3em;
+    
+}
+
+.month span#fr-left{
+    grid-area: fr-left;
+}
+
+.month span#fr-left:hover{
+    cursor: pointer;
+}
+
+#month-name{
+    grid-area: month-name;
+    text-align: right;
+}
+
+#year-name{
+    grid-area: year-name;
+    text-align: left;
+}
+
+.month span#fr-right{
+    grid-area: fr-right;
+}
+
+.month span#fr-right:hover{
+    cursor: pointer;
+}
+
+.month img{
+    vertical-align: .1em;
+    width: 0.5em;
+    margin: 0 .3em 0 .3em;
+}
+
+#dates{
+    grid-area: dates;
+    margin: 0 auto;
+}
+
+#dates table tr td{
+    padding: 3.6px;
+    width: 1.7em;
+    height: 1.7em;
+    text-align: center;
+    
+}
+
+#dates table tr td#today-date{
+    border-radius: 50%;
+    background: rgb(4,39,251,0.4);
+}
+
+#dates table tr td.next-month-dates{
+    color: #847E7E;
+    
+}
+
+#dates table tr td.current-month-days{
+    cursor: pointer;
+}
+
+.to-calendar{
+    background: rgb(255,255,255,0.7);
+    grid-area: to-calendar;
+    padding-top: .5em;
+    border-radius: .5em;
+    display: none;
+    
+    width: 18em;
+    height: 18em;
+    margin: .5em;
+    margin-left: 1.3em;
+    
+    grid-template-areas:
+        "to-month"
+        "to-dates";
+    
+    grid-template-rows: 1.5em;
+
+}
+
+.to-month{
+    grid-area: to-month;
+    display: grid;
+/*    grid-template-columns: 2em 1fr 1fr 2em;*/
+    grid-template-areas: 
+        "to-left to-month-name to-year-name to-right";
+/*    margin: .2em;*/
+    font-size: 19px;
+    text-align: center; 
+}
+
+.to-month span{
+    margin: 0 .3em 0 .3em;
+    
+}
+
+.to-month span#to-left{
+    grid-area: to-left;
+}
+
+.to-month span#to-left:hover{
+    cursor: pointer;
+}
+
+#to-month-name{
+    grid-area: to-month-name;
+    text-align: right;
+}
+
+#to-year-name{
+    grid-area: to-year-name;
+    text-align: left;
+}
+
+.to-month span#to-right{
+    grid-area: to-right;
+}
+
+.to-month span#to-right:hover{
+    cursor: pointer;
+}
+
+.to-month img{
+    width: 0.5em;
+}
+
+#to-dates{
+    grid-area: to-dates;
+    margin: 0 auto;
+}
+
+#to-dates table tr td{
+    padding: 3.6px;
+    width: 1.7em;
+    height: 1.7em;
+    text-align: center;
+    
+}
+
+#to-dates table tr td:hover{
+    cursor: pointer;
+}
+
+#to-dates table tr td#today-date{
+    border-radius: 50%;
+    background: rgb(4,39,251,0.4);
+}
+
+#to-dates table tr td.next-month-dates{
+    color: #847E7E;
+    
+}
+
+#to-dates table tr td#to-today-date{
+    border-radius: 50%;
+    background: rgb(4,39,251,0.4);
+}
+
+h1#thankyou{
+    text-align: center;
+/*    color: white;*/
+    font-size: 70px;
+    margin-top: 16%;
+}
+
+h4#thankyou_suff{
+    text-align: center;
+}
